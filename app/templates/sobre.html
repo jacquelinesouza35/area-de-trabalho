@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> jacqueline | {{title}} </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    
     <style>
         /* Estilos do menu */
         ul {
@@ -24,28 +26,67 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-        }
 
-        li a:hover {
-            background-color: #111;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        section {
+            padding: 30px;
+        }
+        .project {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
         }
     </style>
 </head>
 <body>
-    <!-- Menu -->
-    <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="projetos">Projetos</a></li>
-        <li><a href="sobre">Sobre</a></li>
-        <li><a href="contato">Contato</a></li>
-    </ul>
-    <div id="sobre">
-        <h2>Sobre mim</h2>
-        <p>Olá! Meu nome é [Seu Nome] e sou um(a) desenvolvedor(a) web apaixonado(a) por tecnologia e criação. Minha jornada no mundo da programação começou há [X anos], e desde então tenho me dedicado a aprimorar minhas habilidades e a criar soluções incríveis para problemas reais.</p>
+
+    <header>
+        <body>
+        <h1>Meu Portfólio</h1>
+    </header>
+    <nav>
+        <a href="/">Início</a>
+        <a href="/projetos">Projetos</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
+    </nav>
+    <div style="background-color: #f9ecec; padding: 20px;">
+    <section id="sobre">
+       
+            <h2>Sobre Mim</h2>
+            <p>Eu sou um entusiasta ambiental comprometido em fazer a diferença no mundo. Minha jornada na área de meio ambiente começou com o objetivo de contribuir para a preservação dos ecossistemas e promover a conscientização sobre a importância da sustentabilidade
+
+        <p>Olá! Meu nome é jacqueline e sou uma desenvolvedora web apaixonado a por tecnologia e criação. Minha jornada no mundo da programação começou há [4 meses], e desde então tenho me dedicado a aprimorar minhas habilidades e a criar soluções incríveis para problemas reais.</p>
         
         <p>Minha paixão pelo desenvolvimento web começou com o HTML e CSS básicos, e ao longo dos anos, expandi meus conhecimentos para incluir JavaScript, frameworks como React e Angular, além de aprofundar meu conhecimento em desenvolvimento backend com Node.js e bancos de dados como MongoDB.</p>
 
-        <p>Atualmente, estou buscando oportunidades para trabalhar em projetos desafiadores, onde posso aplicar minhas habilidades técnicas e minha criatividade para criar soluções inovadoras. Além do desenvolvimento web, também sou fascinado(a) por inteligência artificial e aprendizado de máquina, e estou sempre em busca de aprender novas tecnologias e ferramentas.</p>
+        <p>Atualmente, estou buscando oportunidades para trabalhar em projetos desafiadores, onde posso aplicar minhas habilidades técnicas e minha criatividade para criar soluções inovadoras. Além do desenvolvimento web, também sou fascinada por inteligência artificial e aprendizado de máquina, e estou sempre em busca de aprender novas tecnologias e ferramentas.</p>
 
-        <p>Se você está procurando um(a) desenvolvedor(a) web comprometido(a) e apaixonado(a) para sua equipe ou projeto, adoraria ter a oportunidade de colaborar. Sinta-se à vontade para entrar em contato comigo através do email [seuemail@example.com], estou ansioso(a) para conversar!</p>
+        <p>Se você está procurando uma desenvolvedora web comprometida e apaixonada para sua equipe ou projeto, adoraria ter a oportunidade de colaborar. Sinta-se à vontade para entrar em contato comigo através do email [seuemail@example.com], estou ansiosa para conversar!</p>
     </div>

@@ -5,56 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> jacqueline | {{title}}</title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 5px 10px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #ddd;
+        }
+        section {
+            padding: 30px;
+        }
+        .project {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+    </style>
 </head>
 <body>
-    <!-- Menu -->
-    <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="projetos">Projetos</a></li>
-        <li><a href="sobre">Sobre</a></li>
-        <li><a href="contato">Contato</a></li>
-    </ul>
+    <header>
+        <h1>Meu Portfólio</h1>
+    </header>
 
-    <!-- Conteúdo do portfólio -->
-    <div id="inicio">
-        <h2>Seja bem-vindo ao meu portfólio!</h2>
-        <p>
-            Projetos em Meio Ambiente
-            
-            Olá, seja bem-vindo ao meu portfólio! Aqui você encontrará uma seleção dos meus projetos e iniciativas em prol do meio ambiente. Sou apaixonado por questões ambientais 
-            e busco contribuir para a preservação e sustentabilidade do nosso planeta.
-            
-            Projeto 1: Restauração de Ecossistemas
-            
-            Neste projeto, liderei uma equipe dedicada à restauração de ecossistemas degradados. Trabalhamos em áreas afetadas por desmatamento e degradação do solo, 
-            implementando técnicas de reflorestamento e recuperação da biodiversidade. Ao longo do projeto, plantamos milhares de árvores nativas, promovendo a conservação da
-             flora e fauna local.
-            
-            
-            Projeto 2: Campanha de Conscientização Ambiental
-            
-            Conscientizar a comunidade é essencial para promover mudanças significativas. Nesta iniciativa, organizei uma campanha de conscientização ambiental, 
-            realizando palestras, workshops e eventos educativos. O objetivo era disseminar informações sobre práticas sustentáveis e incentivar a participação de 
-            todos na proteção do meio ambiente.
-            
-            
-            Projeto 3: Gerenciamento de Resíduos Sólidos
-            
-            Em parceria com órgãos governamentais e empresas locais, desenvolvi um projeto de gerenciamento de resíduos sólidos. Implementamos estratégias para a 
-            coleta seletiva, reciclagem e reutilização de materiais, visando a redução do impacto ambiental e a promoção da economia circular.
-            
-            
-            Projeto 4: Energias Renováveis
-            
-            Neste projeto, explorei soluções de energias renováveis para reduzir a dependência de combustíveis fósseis. Participei do planejamento e implantação de sistemas 
-            de energia solar e eólica em comunidades remotas, proporcionando acesso à energia limpa e sustentável.
-            
-            Estes são apenas alguns exemplos dos projetos em que estive envolvido. Acredito que cada pequena ação em prol do meio ambiente é valiosa e pode fazer a 
-            diferença. Meu compromisso é continuar trabalhando para tornar nosso planeta um lugar mais sustentável e saudável para as gerações futuras.
-            
-            Se você se interessa por projetos relacionados ao meio ambiente e busca parcerias para iniciativas sustentáveis, sinta-se à vontade para entrar em
-             contato. Vamos juntos fazer a diferença!
-            </p>
-    </div>
+    <nav>
+        <a href="/">Início</a>
+        <a href="/projetos">Projetos</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/contato">Contato</a>
+    </nav>
 
+    <section id="inicio">
+        <div style="background-color: #f9ecec; padding: 20px;">
+            <h2>Seja bem-vindo ao meu portfólio!</h2>
+            <p>Projetos em Meio Ambiente. Olá, seja bem-vindo ao meu portfólio! Aqui você encontrará uma seleção dos meus projetos e iniciativas em prol do meio ambiente. Sou apaixonado por questões ambientais e busco contribuir para a preservação e sustentabilidade do nosso planeta.</p>
+        </div>
+   
     
