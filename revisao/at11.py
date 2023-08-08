@@ -10,16 +10,20 @@ meuFusca.andar(100);            # anda 100 quilômetros.
 meuFusca.obterGasolina()        # Imprime o combustível que resta no tanque.'''
 
 class Carro:
- def __init__(self, consumo):
-     self.consumo = consumo
-     self.nivelCombustivel = 0
- def andar(self, distancia):
-     temp = distancia/self.consumo
-     self.nivelCombustivel -= temp
- def obterGasolina(self):
-    return self.nivelCombustivel
- def adicionarGasolina(self, qtd):
-     self.nivelCombustivel += qtd
+    def __init__(self, consumo):
+        self.consumo = consumo
+        self.nivelCombustivel = 0
+    
+    def andar(self, distancia):
+        temp = distancia / self.consumo
+        self.nivelCombustivel -= temp
+    
+    def obterGasolina(self):
+        return self.nivelCombustivel
+    
+    def adicionarGasolina(self, qtd):
+        self.nivelCombustivel += qtd
+
 meuFusca = Carro(8)
 meuFusca.adicionarGasolina(50)
 meuFusca.andar(300)

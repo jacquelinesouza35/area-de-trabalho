@@ -27,16 +27,6 @@ class Bichinho():
   return self.idade
  def humor(self):
   return self.getFome() * self.getSaude()
- def alimenta(self, quantidade):
-  if (quantidade >= 0) and (quantidade <= 100):
-      self.fome -= self.fome * (quantidade /100.0)
- def brincar(self, quantidade):
-  if (quantidade >= 0) and (quantidade <= 100):
-      self.saude += self.saude * (quantidade / 100.0)
  
 b = Bichinho("Tamagoshi", 5,5,5)
-print(b.humor())
-b.alimenta(30)
-print(b.humor())
-b.brincar(20)
 print(b.humor())

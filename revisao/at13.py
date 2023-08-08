@@ -3,12 +3,16 @@ Um empregado tem um nome (um string) e um salário(um double). Escreva um constr
 e métodos para devolver nome e salário. Escreva um pequeno programa que teste sua classe.'''
 
 class Funcionario():
- def __init__(self, nome, salario):
-   self.nome = nome
-   self.salario = salario
- def getNome(self):
-  return self.nome
- def getSalario(self):
-  return self.salario
+    def __init__(self, nome, salario):
+        self.nome = nome
+        self.salario = salario
+    
+    def getNome(self):
+        return self.nome
+    
+    def getSalario(self):
+        return self.salario
+
+# Teste da classe Funcionario
 Func = Funcionario("Jose", 1200)
-print("Nome: ", Func.getNome(), ", Salario", Func.getSalario())
+print("Nome:", Func.getNome(), ", Salario:", Func.getSalario())

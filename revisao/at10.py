@@ -12,26 +12,38 @@ alterarQuantidadeCombustivel( ) – altera a quantidade de combustível restante
 OBS: Sempre que acontecer um abastecimento é necessário atualizar a quantidade de combustível total na bomba.'''
 
 class BombaCombustivel:
- def __init__(self, tipoCombustivel, valorLitro, quantidadeCombustivel):
-    self.tipoCombustivel = tipoCombustivel
-    self.valorLitro = valorLitro
-    self.quantidadeCombustivel = quantidadeCombustivel
- def alterarValor(self, valorLitro):
-    self.valorLitro = valorLitro
- def alterarCombustivel(self, tipoCombustivel):
-    self.tipoCombustivel = tipoCombustivel
- def alterarQuantidadeCombustivel(self, quantidadeCombustivel):
-    self.quantidadeCombustivel = quantidadeCombustivel
- def abastecerPorValor(self, valor):
-    temp = valor/self.valorLitro
-    self.alterarQuantidadeCombustivel(self.quantidadeCombustivel - temp1)
- return temp1
- def abastecerPorLitro(self, qtd):
-    temp2 = qtd * self.valorLitro
- self.alterarQuantidadeCombustivel(self.quantidadeCombustivel - qtd)
- return temp2
-a1 = BombaCombustivel("Gasolina", 5, 500)
-print(a1.abastecerPorValor(150))
-print(a1.quantidadeCombustivel)
-print(a1.abastecerPorLitro(30))
-print(a1.quantidadeCombustivel)
+    def __init__(self, tipoCombustivel, valorLitro, quantidadeCombustivel):
+        self.tipoCombustivel = tipoCombustivel
+        self.valorLitro = valorLitro
+        self.quantidadeCombustivel = quantidadeCombustivel
+    
+    def alterarValor(self, valorLitro):
+        self.valorLitro = valorLitro
+    
+    def alterarCombustivel(self, tipoCombustivel):
+        self.tipoCombustivel = tipoCombustivel
+    
+    def alterarQuantidadeCombustivel(self, quantidadeCombustivel):
+        self.quantidadeCombustivel = quantidadeCombustivel
+    
+    def abastecerPorValor(self, valor):
+        temp = valor / self.valorLitro
+        self.alterarQuantidadeCombustivel(self.quantidadeCombustivel - temp)
+        return temp
+    
+    def abastecerPorLitro(self, qtd):
+        temp2 = qtd * self.valorLitro
+        self.alterarQuantidadeCombustivel(self.quantidadeCombustivel - qtd)
+        return temp2
+
+# Exemplo de uso
+bomba = BombaCombustivel("Gasolina", 5, 500)
+print("Quantidade de combustível antes:", bomba.quantidadeCombustivel)
+
+litros_abastecidos = bomba.abastecerPorValor(150)
+print(f"Litros abastecidos: {litros_abastecidos}")
+print("Quantidade de combustível após abastecimento:", bomba.quantidadeCombustivel)
+
+valor_pago = bomba.abastecerPorLitro(30)
+print(f"Valor pago: R${valor_pago}")
+print("Quantidade de combustível após abastecimento:", bomba.quantidadeCombustivel)
