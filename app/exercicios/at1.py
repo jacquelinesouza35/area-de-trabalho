@@ -1,8 +1,6 @@
 '''Classe Bola: Crie uma classe que modele uma bola:
-
 Atributos: Cor, circunferência, material
 Métodos: trocaCor e mostraCor'''
-
 
 class Bola():
     def __init__(self, cor, circunferencia, material):
@@ -15,7 +13,7 @@ class Bola():
     
     def mostraCor(self):
         return self.cor
-
+    
 b = Bola("azul", 10, "couro")
 print(b.mostraCor())
 b.trocaCor("vermelha")
