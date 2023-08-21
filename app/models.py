@@ -1,12 +1,22 @@
 from app import app,db
 
-class ContatoModels(db.Model):
-    id = db.Column(id.Integer,primary_Key=True)
-    nome = db.column(db.String(30),nullable=False)
-    email = db.column(db.String(40),nullable=False)
-    menssagem = db.column(db.text,nullable=True)
+class ContatoModel(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    nome = db.Column(db.String(40), nullable = False)
+    email = db.Column(db.String(60), nullable = False)
+    telefone = db.Column(db.String(14), nullable = False)
+    mensagem = db.Column(db.Text, nullable = True)
+    
+    def __repr__(self):
+        return 'Contato!'
 
+class CadastroModel(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    nome = db.Column(db.String(40), nullable = False)
+    sobrenome = db.Column(db.String(40), nullable = False)
+    email = db.Column(db.String(60), nullable = False )
+    senha = db.Column(db.String(10), nullable = False)
 
-    def _repr_(self):
-        return f'<contato {self.nome}>'
+    def __repr__(self):
+        return 'Cadastro!'
     
