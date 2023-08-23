@@ -11,7 +11,7 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-  <h2 class="mb-4">Cadastre-se</h2>
+  <h2 class="mb-4">Cadastro</h2>
   <form action="" method="post">
     {{ cadastro.csrf_token }}
     <div class="form-row">
@@ -22,16 +22,36 @@
       <div class="col-md-6 mb-3">
         <label for="sobrenome">Sobrenome</label>
         {{ cadastro.sobrenome(class="form-control", placeholder="Digite aqui o seu sobrenome") }}
-        </div>
-            <div class="col-md-6 mb-3">
-              <label for="email">Email</label>
-              {{ cadastro.email(class="form-control", placeholder="Digite aqui o seu e-mail") }}      
-              </div>
-            <div class="col-md-6 mb-3">
-              <label for="senha">Senha</label>
-              {{ cadastro.senha(class="form-control", placeholder="Digite aqui o seu e-mail") }}
-              </div>
       </div>
+      <div class="ol-md-6 mb-3">
+        <label for="cpf">CPF:</label>
+        {{ cadastro.cpf(class="form-control", placeholder="Digite aqui seu CPF") }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="email">Email</label>
+        {{ cadastro.email(class="form-control", placeholder="Digite aqui o seu e-mail") }}      
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="senha">Senha</label>
+        {{ cadastro.senha(class="form-control", placeholder="Digite aqui a sua senha") }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="uf">UF</label>
+        {{ cadastro.uf(class="form-control", placeholder="Digite aqui a UF") }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cidade">Cidade</label>
+        {{ cadastro.cidade(class="form-control", placeholder="Digite aqui a cidade") }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="endereco">Endereço</label>
+        {{ cadastro.endereco(class="form-control", placeholder="Digite aqui o endereço") }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="numero_residencial">Número da Residência</label>
+        {{ cadastro.numero_residencial(class="form-control", placeholder="Digite aqui o número da residência") }}
+      </div>
+    </div>
     {{ cadastro.enviar(class="btn btn-primary")}} 
   </form>
 </section>

@@ -40,16 +40,22 @@ def blog():
 
 @app.route('/cadastro', methods=['POST', 'GET'])
 def cadastro():
-    print('Acessou a rota de cadastro')
     cadastro = Cadastro()
     if cadastro.validate_on_submit():
         try:
             nome = cadastro.nome.data
             sobrenome = cadastro.sobrenome.data
+            cpf = cadastro.cpf.data
             email = cadastro.email.data
             senha = cadastro.senha.data
+            uf = cadastro.uf.data
+            cidade = cadastro.cidade.data
+            endereco = cadastro.endereco.data
+            numero_residencial = cadastro.numero_residencial.data
+            
             hash_senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-            novo_cadastro = CadastroModel(nome=nome, sobrenome=sobrenome, email=email, senha=hash_senha)
+            novo_cadastro = CadastroModel(nome=nome, sobrenome=sobrenome, cpf=cpf, email=email, senha=hash_senha ,uf = uf, cidade=cidade ,endereco=endereco, numero_residencial=numero_residencial)
+            print('chegou aqui')
             db.session.add(novo_cadastro)
             db.session.commit()
             flash('Seu cadastro foi realizado com sucesso!')
@@ -57,7 +63,6 @@ def cadastro():
             flash('Ocorreu um erro ao cadastrar! Entre em contato com o suporte: adm@admin.com')
             print(str(e))
     return render_template('cadastro.html', titulo='Cadastro', cadastro=cadastro)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -90,14 +95,36 @@ def editar():
     if request.method == 'POST':
         usuario.nome = request.form.get('nome')
         usuario.sobrenome = request.form.get('sobrenome')
+        usuario.cpf = request.form.get('cpf')
         usuario.email = request.form.get('email')
         senha = request.form.get('senha')
         usuario.senha = bcrypt.generate_password_hash(senha).decode('utf-8')
-        db.session.commit()
         session['email'] = usuario.email  
         session['nome'] = usuario.nome
+        session['cpf'] = usuario.cpf
         session['sobrenome'] = usuario.sobrenome
         session['senha'] = usuario.senha
+        session['uf'] = usuario.uf
+        session['cidade'] = usuario.cidade
+        session['endereco'] = usuario.endereco
+        session['numero_residencial'] = usuario.numero_residencial
+        db.session.commit()
         flash('Seus dados foram atualizados com sucesso!')
         
+        
     return render_template('editar.html', titulo= 'Editar', usuario = usuario)
+
+@app.route('/excluir_conta',methods=['GET'])
+def excluir_conta():
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    usuario = CadastroModel.query.filter_by(email = session['email']).first()
+    db.session.delete(usuario)
+    db.session.commit()
+    session.clear()
+    flash(' Sua conta foi excluida com sucesso! ')
+    return redirect(url_for('cadastro'))
+    
+    
+
+
