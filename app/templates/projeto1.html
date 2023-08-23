@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<html>
+<head>
+    <title>Página de Projetos - Flask: Rotas e Inicialização de Formulários</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página de Projetos - Flask: Rotas e Inicialização de Formulários</h1>
+    <p>Bem-vindo à página de projetos! Aqui vamos explorar como criar rotas e inicializar formulários dentro de um projeto Flask.</p>
+
+    <h2>Criação de Rotas no Flask</h2>
+    <p>No Flask, você pode criar rotas usando a decorator <code>@app.route()</code>. Isso permite definir o que será exibido quando um determinado URL for acessado.</p>
+
+    <pre><code>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Página inicial do meu site.'
+
+@app.route('/sobre')
+def sobre():
+    return 'Página de informações sobre o projeto.'
+
+if __name__ == '__main__':
+    app.run()
+    </code></pre>
+
+    <h2>Inicialização de Formulários</h2>
+    <p>Para trabalhar com formulários no Flask, você pode usar a extensão <code>Flask-WTF</code>. Isso permite criar, validar e processar formulários de maneira eficaz.</p>
+
+    <pre><code>
+from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+
+app = Flask(__name__)
+
+class MeuFormulario(FlaskForm):
+    nome = StringField('Nome')
+    enviar = SubmitField('Enviar')
+
+@app.route('/formulario', methods=['GET', 'POST'])
+def formulario():
+    form = MeuFormulario()
+    if form.validate_on_submit():
+        nome = form.nome.data
+        return f'Nome submetido: {nome}'
+    return render_template('formulario.html', form=form)
+
+if __name__ == '__main__':
+    app.run()
+    </code></pre>
+
+    <h2>Outros Conceitos</h2>
+    <p>O Flask oferece muitos outros recursos, como renderização de templates, manipulação de bancos de dados e uso de blueprints para organizar seu aplicativo de maneira modular. Explore a documentação do Flask para aprender mais!</p>
+</body>
+</html>
+    <a href="projetos"  class="btn btn-primary">voltar</a>
+</section>
+{% endblock %}

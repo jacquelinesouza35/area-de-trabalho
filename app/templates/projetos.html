@@ -7,32 +7,36 @@
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h3 class="card-title">APP globinho</h3>
+                    <h3 class="card-title">Criando uma Máquina Virtual em Flask</h3>
                     <p class="card-text">Um aplicativo web para ajudar você a organizar suas tarefas diárias. O Gerenciador de Tarefas permite adicionar, editar e marcar tarefas como concluídas, mantendo você produtivo e no controle.</p>
+                    <a href="{% if session['email'] %}{{ url_for('projeto1') }}{% else %}{{ url_for('login') }}{% endif %}" class="btn btn-primary">Leia Mais</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h3 class="card-title">Chat Recriando</h3>
+                    <h3 class="card-title">Página de Projetos - Conceitos Básicos em Flask</h3>
                     <p class="card-text">Crie, edite e compartilhe suas ideias e conhecimentos com o mundo através do seu próprio blog pessoal. Este projeto é perfeito para quem gosta de escrever e deseja construir uma presença online.</p>
+                    <a href="{% if session['email'] %}{{ url_for('projeto2') }}{% else %}{{ url_for('login') }}{% endif %}" class="btn btn-primary">Leia Mais</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h3 class="card-title">custos</h3>
+                    <h3 class="card-title">Página de Projetos - Como Adicionar um Banco de Dados em Flask</h3>
                     <p class="card-text">Uma calculadora de orçamento simples, porém poderosa, que ajuda você a planejar suas finanças. Insira suas despesas e receitas para ter uma visão clara de como está gastando seu dinheiro.</p>
+                    <a href="{% if session['email'] %}{{ url_for('projeto3') }}{% else %}{{ url_for('login') }}{% endif %}" class="btn btn-primary">Leia Mais</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-body">
-                    <h3 class="card-title">Eventos reciclo</h3>
+                    <h3 class="card-title">Eventos Reciclo</h3>
                     <p class="card-text">Mantenha-se atualizado com os eventos importantes em sua vida usando esta agenda de eventos. Adicione datas e detalhes dos eventos e receba lembretes para nunca mais perder um compromisso.</p>
+                    <a href="{% if session['email'] %}{{ url_for('projeto4') }}{% else %}{{ url_for('login') }}{% endif %}" class="btn btn-primary">Leia Mais</a>
                 </div>
             </div>
         </div>

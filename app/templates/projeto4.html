@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<html>
+<head>
+    <title>Página de Projetos - Flask: Campos de Acesso ao Usuário</title>
+    <style>
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página de Projetos - Flask: Campos de Acesso ao Usuário</h1>
+    <p>Bem-vindo à página de projetos! Aqui vamos explorar como adicionar campos de acesso ao usuário em um projeto Flask.</p>
+
+    <h2>Criação de Rotas no Flask</h2>
+    <p>No Flask, você pode criar rotas usando a decorator <code>@app.route()</code>. Isso permite definir o que será exibido quando um determinado URL for acessado.</p>
+
+    <pre><code>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Página inicial do meu site.'
+
+@app.route('/sobre')
+def sobre():
+    return 'Página de informações sobre o projeto.'
+
+if __name__ == '__main__':
+    app.run()
+    </code></pre>
+
+    <h2>Adição de Campos de Acesso ao Usuário</h2>
+    <p>Para permitir que os usuários acessem seu aplicativo de maneira segura, você pode implementar campos de login usando a extensão <code>Flask-WTF</code>.</p>
+
+    <pre><code>
+from flask import Flask, render_template, redirect, url_for
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import InputRequired
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'seu_secreto_aqui'  # Chave secreta para proteger os dados do formulário
+
+# Definindo o formulário de login
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[InputRequired()])
+    senha = PasswordField('Senha', validators=[InputRequired()])
+    enviar = SubmitField('Entrar')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        # Lógica de autenticação aqui
+        # Redirecionar para a página principal se as credenciais forem válidas
+        return redirect(url_for('index'))
+
+    return render_template('login.html', form=form)
+
+if __name__ == '__main__':
+    app.run()
+</code></pre>
+
+<h2>Outros Conceitos</h2>
+<p>O Flask oferece muitos outros recursos, como renderização de templates, manipulação de bancos de dados e uso de blueprints para organizar seu aplicativo de maneira modular. Explore a documentação do Flask para aprender mais!</p>
+</body>
+</html>
+<a href="projetos"  class="btn btn-primary">voltar</a>
+</section>
+{% endblock %}

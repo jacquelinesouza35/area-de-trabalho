@@ -34,6 +34,26 @@ def sobre():
 def projetos():
     return render_template('projetos.html', titulo = 'Projetos' )
 
+@app.route('/projeto1')
+def projeto1():
+    return render_template('projeto1.html', titulo = 'Projeto1' )
+
+@app.route('/projeto2')
+def projeto2():
+    return render_template('projeto2.html', titulo = 'Projeto1' )
+
+@app.route('/projeto3')
+def projeto3():
+    return render_template('projeto3.html', titulo = 'Projeto1' )
+
+@app.route('/projeto3')
+def projeto4():
+    return render_template('projeto4.html', titulo = 'Projeto1' )
+
+
+
+
+
 @app.route('/blog')
 def blog():
     return render_template('blog.html', tituto = 'Blog')

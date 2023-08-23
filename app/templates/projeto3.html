@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<html>
+<head>
+    <title>Página de Projetos - Como Adicionar um Banco de Dados em Flask</title>
+</head>
+<body>
+    <h1>Página de Projetos - Como Adicionar um Banco de Dados em Flask</h1>
+    <p>Bem-vindo à página de projetos! Aqui vamos explicar como adicionar um banco de dados em um projeto Flask.</p>
+
+    <h2>Passos para Adicionar um Banco de Dados em Flask</h2>
+    <ol>
+        <li>Abra o Prompt de Comando (Command Prompt) no Windows.</li>
+        <li>Crie um ambiente virtual (opcional, mas recomendado) para isolar seu projeto. Você pode usar o seguinte comando:</li>
+    </ol>
+
+    <pre><code>python -m venv venv</code></pre>
+
+    <ol start="3">
+        <li>Ative o ambiente virtual com o comando:</li>
+    </ol>
+
+    <pre><code>venv\Scripts\activate</code></pre>
+
+    <ol start="4">
+        <li>Use o pip para instalar o Flask e a extensão Flask-SQLAlchemy para integração com o banco de dados:</li>
+    </ol>
+
+    <pre><code>pip install Flask Flask-SQLAlchemy</code></pre>
+
+    <ol start="5">
+        <li>Importe e configure o SQLAlchemy em seu aplicativo:</li>
+    </ol>
+
+    <pre><code>
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///meu_banco_de_dados.db'
+db = SQLAlchemy(app)
+</code></pre>
+
+    <ol start="6">
+        <li>Crie uma classe para representar uma tabela no banco de dados:</li>
+    </ol>
+
+    <pre><code>
+class Usuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+</code></pre>
+
+    <ol start="7">
+        <li>Crie as tabelas no banco de dados usando o seguinte comando:</li>
+    </ol>
+
+    <pre><code>python
+from seu_app import db
+db.create_all()
+    </code></pre>
+
+    <h2>Exemplo de Uso do Banco de Dados</h2>
+    <p>Aqui está um exemplo básico de como criar e consultar registros no banco de dados:</p>
+
+    <pre><code>
+# Criando um novo usuário
+novo_usuario = Usuario(nome='John Doe', email='john@example.com')
+db.session.add(novo_usuario)
+db.session.commit()
+
+# Consultando usuários
+usuarios = Usuario.query.all()
+for usuario in usuarios:
+    print(usuario.nome, usuario.email)
+</code></pre>
+
+<h2>Outros Conceitos</h2>
+<p>O Flask oferece muitos outros recursos, como renderização de templates, manipulação de bancos de dados e uso de blueprints para organizar seu aplicativo de maneira modular. Explore a documentação do Flask para aprender mais!</p>
+</body>
+</html>
+<a href="projetos"  class="btn btn-primary">voltar</a>
+</section>
+{% endblock %}
